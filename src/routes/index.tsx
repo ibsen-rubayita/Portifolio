@@ -19,6 +19,7 @@ import {
   Languages,
 } from "lucide-react";
 import photoAsset from "@/assets/ibsen-photo.png.asset.json";
+import cvAsset from "@/assets/ibsen-cv.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -59,6 +60,7 @@ const T = {
     viewWork: "view work",
     copyEmail: "copy email",
     copied: "copied",
+    downloadCV: "download cv",
     aboutTag: "01 — about",
     aboutHead: ["Full-stack engineer with an eye for ", "design", "."],
     aboutP: "I build the whole stack — from the pixel a user touches to the query a server whispers back. My north star is interfaces that breathe on every screen, resting on back-ends that are calm, honest, and easy to live with.",
@@ -107,6 +109,7 @@ const T = {
     viewWork: "reba imirimo",
     copyEmail: "fata imeli",
     copied: "byafashwe",
+    downloadCV: "manura cv",
     aboutTag: "01 — ibyerekeye",
     aboutHead: ["Umwubatsi w’urubuga ufite ijisho ku ", "moderi", "."],
     aboutP: "Nubaka byose — uhereye kuri pixel umukoresha akoraho kugeza ku rubuga rw’imbere. Intego yanjye: imbuga zoroshye ku byuma byose, zishingiye ku rusobe rukomeye, rwumvikana kandi rworoshye kubungabunga.",
@@ -155,6 +158,7 @@ const T = {
     viewWork: "voir les projets",
     copyEmail: "copier l’email",
     copied: "copié",
+    downloadCV: "télécharger cv",
     aboutTag: "01 — à propos",
     aboutHead: ["Ingénieur full-stack à l’œil de ", "designer", "."],
     aboutP: "Je construis toute la pile — du pixel que l’on touche à la requête que le serveur murmure en retour. Mon cap : des interfaces qui respirent sur chaque écran, posées sur des back-ends calmes, honnêtes et faciles à vivre.",
@@ -388,6 +392,13 @@ function Index() {
                   {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
                   {copied ? t.copied : t.copyEmail}
                 </button>
+                <a
+                  href={cvAsset.url}
+                  download="Ibsen_Rubayita_CV.pdf"
+                  className="inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
+                >
+                  <Download className="size-3.5" /> {t.downloadCV}
+                </a>
               </div>
             </div>
 
