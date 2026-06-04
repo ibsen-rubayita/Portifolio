@@ -39,11 +39,22 @@ export const Route = createFileRoute("/")({
 });
 
 const PROJECTS = [
-  { n: "01", name: "Atlas Commerce", tag: "React · Node · Stripe", year: "2025", desc: "Headless storefront with custom checkout, payments, and a CMS dashboard." },
-  { n: "02", name: "Lumen Dashboard", tag: "TypeScript · PHP · Charts", year: "2024", desc: "Analytics platform with real-time charts, role-based access, and PDF exports." },
-  { n: "03", name: "Kigali Eats", tag: "Node · PWA", year: "2024", desc: "Restaurant discovery & ordering tuned for low-bandwidth networks." },
-  { n: "04", name: "Vault CRM", tag: "Python · Postgres", year: "2023", desc: "Customer pipeline and invoicing for a regional logistics company." },
-  { n: "05", name: "Studio Portfolio", tag: "JS · CSS · Motion", year: "2023", desc: "Award-style portfolio for a creative studio with custom motion." },
+  {
+    n: "01",
+    name: "ArtSpace",
+    tag: "React · Tailwind · UI/UX",
+    year: "2025",
+    desc: "An art appreciation platform — a calm, curated space to explore and celebrate visual art.",
+    href: "https://artspace-canvas.lovable.app",
+  },
+  {
+    n: "02",
+    name: "Calogero Ltd",
+    tag: "Next.js · Responsive · Marketing",
+    year: "2025",
+    desc: "Corporate website for a construction company — services, projects, and lead generation.",
+    href: "https://calogero-alpha.vercel.app",
+  },
 ];
 
 const STACK: Record<string, string[]> = {
