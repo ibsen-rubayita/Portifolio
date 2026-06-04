@@ -318,7 +318,9 @@ function Index() {
             {PROJECTS.map((p) => (
               <a
                 key={p.n}
-                href="#"
+                href={p.href}
+                target="_blank"
+                rel="noreferrer"
                 className="group grid grid-cols-12 gap-3 py-5 md:py-7 items-baseline hover:bg-card transition-colors px-2 md:px-4 -mx-2 md:-mx-4 rounded-md"
               >
                 <div className="col-span-2 md:col-span-1 font-mono text-[11px] text-muted-foreground">
