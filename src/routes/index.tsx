@@ -392,6 +392,13 @@ function Index() {
                   {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
                   {copied ? t.copied : t.copyEmail}
                 </button>
+                <a
+                  href={cvAsset.url}
+                  download="Ibsen_Rubayita_CV.pdf"
+                  className="inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
+                >
+                  <Download className="size-3.5" /> {t.downloadCV}
+                </a>
               </div>
             </div>
 
