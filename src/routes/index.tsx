@@ -122,13 +122,10 @@ function Index() {
           <a
             href="#top"
             onClick={(e) => onSmoothScroll(e, "top")}
-            className="font-mono text-sm font-700 tracking-tight flex items-center gap-2"
+            className="font-display text-lg font-700 tracking-tight flex items-center gap-2"
           >
-            <Terminal className="size-4 text-accent" />
-            <span>ibsen</span>
-            <span className="text-accent">@</span>
-            <span>kigali</span>
-            <span className="text-muted-foreground">:~$</span>
+            <span className="size-2 rounded-full bg-accent" />
+            <span>Ibsen</span>
           </a>
           <nav className="hidden md:flex items-center gap-7 font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
             {[
@@ -144,7 +141,7 @@ function Index() {
                 onClick={(e) => onSmoothScroll(e, id)}
                 className="relative hover:text-foreground transition"
               >
-                <span className="text-accent mr-1">./</span>{label}
+                {label}
               </a>
             ))}
           </nav>
