@@ -415,10 +415,10 @@ function Index() {
       {/* CONTACT */}
       <section
         id="contact"
-        className="relative py-20 md:py-28 border-t border-border bg-foreground text-background overflow-hidden scroll-mt-20"
+        className="relative py-20 md:py-28 border-t border-border overflow-hidden scroll-mt-20"
       >
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-background/60 mb-5">
+          <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-5">
             <span className="text-accent">#</span> 05 — let&apos;s talk
           </p>
           <h2 className="font-display text-4xl md:text-6xl font-600 leading-[0.95] tracking-[-0.03em]">
@@ -426,7 +426,7 @@ function Index() {
             <span className="text-accent">Let&apos;s build it.</span>
           </h2>
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 pt-10 border-t border-background/20">
+          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 pt-10 border-t border-border">
             {/* Contact info (left) */}
             <div className="space-y-4">
               <a href="mailto:ibsenrubayita@gmail.com" className="flex items-center gap-3 group">
@@ -468,9 +468,9 @@ function Index() {
                 </span>
               </a>
 
-              <div className="pt-4 mt-2 border-t border-background/20 font-mono text-xs text-background/60 leading-relaxed">
+              <div className="pt-4 mt-2 border-t border-border font-mono text-xs text-muted-foreground leading-relaxed">
                 <div><span className="text-accent">$</span> uptime</div>
-                <div className="text-background/80">replies within ~24h · mon–fri</div>
+                <div className="text-foreground/80">replies within ~24h · mon–fri</div>
               </div>
             </div>
 
@@ -480,7 +480,7 @@ function Index() {
             </div>
           </div>
 
-          <div className="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-6 border-t border-background/20 font-mono text-[11px] uppercase tracking-[0.18em] text-background/50">
+          <div className="mt-16 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-6 border-t border-border font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
             <span>© 2026 Aubin Ibsen Rubayita</span>
             <span className="flex items-center gap-2">
               <Download className="size-3" /> built & shipped from kigali
@@ -493,68 +493,81 @@ function Index() {
 }
 
 function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "sending" | "sent">("idle");
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
-    const name = String(fd.get("name") || "");
-    const email = String(fd.get("email") || "");
-    const msg = String(fd.get("message") || "");
-    const body = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
-    const subject = encodeURIComponent(`Project enquiry from ${name}`);
+    const form = e.currentTarget;
+    const fd = new FormData(form);
     setStatus("sending");
-    window.location.href = `mailto:ibsenrubayita@gmail.com?subject=${subject}&body=${body}`;
-    setTimeout(() => setStatus("sent"), 600);
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/ibsenrubayita@gmail.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: fd.get("name"),
+          email: fd.get("email"),
+          message: fd.get("message"),
+          _subject: `Portfolio enquiry from ${fd.get("name")}`,
+          _template: "table",
+          _captcha: "false",
+        }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      setStatus("sent");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
     <form
       onSubmit={onSubmit}
-      className="rounded-xl border border-background/20 bg-background/5 p-5 backdrop-blur-sm space-y-3"
+      className="rounded-xl border border-border bg-card/60 p-5 backdrop-blur-sm space-y-3"
     >
       <div className="flex items-center justify-between mb-1">
-        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-background/60">
+        <div className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
           <span className="text-accent">▸</span> send a message
         </div>
         <div className="flex gap-1">
-          <span className="size-2 rounded-full bg-background/30" />
-          <span className="size-2 rounded-full bg-background/30" />
+          <span className="size-2 rounded-full bg-muted-foreground/30" />
+          <span className="size-2 rounded-full bg-muted-foreground/30" />
           <span className="size-2 rounded-full bg-accent" />
         </div>
       </div>
       <div>
-        <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-background/60">
+        <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           name
         </label>
         <input
           name="name"
           required
-          className="mt-1 w-full bg-transparent border-b border-background/30 focus:border-accent outline-none py-1.5 font-sans text-sm"
+          className="mt-1 w-full bg-transparent border-b border-border focus:border-accent outline-none py-1.5 font-sans text-sm"
           placeholder="Your name"
         />
       </div>
       <div>
-        <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-background/60">
+        <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           email
         </label>
         <input
           type="email"
           name="email"
           required
-          className="mt-1 w-full bg-transparent border-b border-background/30 focus:border-accent outline-none py-1.5 font-sans text-sm"
+          className="mt-1 w-full bg-transparent border-b border-border focus:border-accent outline-none py-1.5 font-sans text-sm"
           placeholder="you@domain.com"
         />
       </div>
       <div>
-        <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-background/60">
+        <label className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
           message
         </label>
         <textarea
           name="message"
           required
           rows={3}
-          className="mt-1 w-full bg-transparent border-b border-background/30 focus:border-accent outline-none py-1.5 font-sans text-sm resize-none"
+          className="mt-1 w-full bg-transparent border-b border-border focus:border-accent outline-none py-1.5 font-sans text-sm resize-none"
           placeholder="Tell me about your project…"
         />
       </div>
@@ -564,15 +577,25 @@ function ContactForm() {
         className="mt-2 group w-full inline-flex items-center justify-center gap-2 bg-accent text-accent-foreground font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-md hover:opacity-90 transition disabled:opacity-60"
       >
         {status === "sent" ? (
-          <>
-            <Check className="size-3.5" /> opened in mail
-          </>
+          <><Check className="size-3.5" /> message sent</>
+        ) : status === "sending" ? (
+          <><Send className="size-3.5 animate-pulse" /> sending…</>
+        ) : status === "error" ? (
+          <><Send className="size-3.5" /> retry</>
         ) : (
-          <>
-            <Send className="size-3.5 group-hover:translate-x-0.5 transition-transform" /> send
-          </>
+          <><Send className="size-3.5 group-hover:translate-x-0.5 transition-transform" /> send</>
         )}
       </button>
+      {status === "sent" && (
+        <p className="font-mono text-[10px] text-accent text-center">
+          Thanks — Ibsen will reply within 24h.
+        </p>
+      )}
+      {status === "error" && (
+        <p className="font-mono text-[10px] text-destructive text-center">
+          Something went wrong. Email ibsenrubayita@gmail.com directly.
+        </p>
+      )}
     </form>
   );
 }
