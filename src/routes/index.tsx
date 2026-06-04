@@ -174,18 +174,25 @@ function Index() {
                 <span>status: available · 2026</span>
               </div>
 
-              {/* Terminal card */}
-              <div className="rounded-lg border border-border bg-card/80 backdrop-blur-sm font-mono text-[13px] mb-8 overflow-hidden glow-accent">
-                <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border bg-secondary/60">
-                  <span className="size-2.5 rounded-full bg-[oklch(0.7_0.2_25)]" />
-                  <span className="size-2.5 rounded-full bg-[oklch(0.82_0.16_85)]" />
-                  <span className="size-2.5 rounded-full bg-[oklch(0.72_0.18_145)]" />
-                  <span className="ml-3 text-muted-foreground text-[11px]">~/portfolio — zsh</span>
+              {/* Identity card */}
+              <div className="rounded-xl border border-border bg-card/70 backdrop-blur-sm p-4 mb-8 overflow-hidden glow-accent flex items-center gap-4">
+                <div className="relative shrink-0">
+                  <div className="size-12 rounded-full bg-accent/15 grid place-items-center">
+                    <Sparkles className="size-5 text-accent" />
+                  </div>
+                  <span className="absolute -bottom-0.5 -right-0.5 size-3 rounded-full bg-accent ring-2 ring-background" />
                 </div>
-                <div className="px-4 py-3 space-y-1">
-                  <div><span className="text-accent">$</span> whoami</div>
-                  <div className="text-muted-foreground">aubin ibsen rubayita — full-stack web developer</div>
-                  <div><span className="text-accent">$</span> cat role.txt <span className="cursor-blink" /></div>
+                <div className="min-w-0">
+                  <div className="font-display text-sm font-600 truncate">Aubin Ibsen Rubayita</div>
+                  <div className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground mt-0.5">
+                    full-stack web developer
+                  </div>
+                </div>
+                <div className="ml-auto hidden sm:flex items-center gap-2 pl-3 border-l border-border">
+                  <div className="text-right">
+                    <div className="font-display text-lg font-600 leading-none text-accent">4y</div>
+                    <div className="font-mono text-[9px] uppercase tracking-[0.2em] text-muted-foreground mt-1">experience</div>
+                  </div>
                 </div>
               </div>
 
