@@ -88,7 +88,7 @@ const T = {
     certsHead: ["Trainings & ", "certificates"],
     contactTag: "06 — let’s talk",
     contactHead: ["Have an idea?", "Let’s build it."],
-    uptime: "replies within ~24h · mon–fri",
+    
     formTitle: "send a message",
     name: "name", email: "email", message: "message",
     namePh: "Your name", emailPh: "you@domain.com", msgPh: "Tell me about your project…",
