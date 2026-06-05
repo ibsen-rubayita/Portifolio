@@ -61,7 +61,7 @@ const T = {
     viewWork: "view work",
     copyEmail: "copy email",
     copied: "copied",
-    downloadCV: "download cv",
+    downloadCV: "view cv",
     aboutTag: "01 — about",
     aboutHead: ["Full-stack engineer with an eye for ", "design", "."],
     aboutP: "I build complete web experiences — from the interfaces people see to the systems that power them behind the scenes. Clean, responsive designs on the surface; solid, maintainable code underneath. That's the balance I aim for.",
@@ -112,7 +112,7 @@ const T = {
     viewWork: "reba imirimo",
     copyEmail: "fata imeli",
     copied: "byafashwe",
-    downloadCV: "manura cv",
+    downloadCV: "reba cv",
     aboutTag: "01 — ibyerekeye",
     aboutHead: ["Umwubatsi w’urubuga ufite ijisho ku ", "moderi", "."],
     aboutP: "Nubaka imbuga zuzuye — uhereye ku masura umuntu akoresha kugeza ku buryo bukorera inyuma. Imiterere yoroshye kandi igaragara neza ku byuma byose; kode nziza kandi igaragara neza. Nico nagerageza kubona.",
@@ -162,7 +162,7 @@ const T = {
     viewWork: "voir les projets",
     copyEmail: "copier l’email",
     copied: "copié",
-    downloadCV: "télécharger cv",
+    downloadCV: "voir cv",
     aboutTag: "01 — à propos",
     aboutHead: ["Ingénieur full-stack à l’œil de ", "designer", "."],
     aboutP: "Je construis des expériences web complètes — de l’interface que les utilisateurs voient aux systèmes qui tournent en arrière-plan. Des designs propres et adaptatifs en surface ; du code solide et maintenable en dessous. C’est l’équilibre que je vise.",
@@ -409,7 +409,7 @@ function Index() {
                 </button>
                 <a
                   href={cvAsset.url}
-                  download="Ibsen_Rubayita_CV.pdf"
+                  target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
                 >
                   <Download className="size-3.5" /> {t.downloadCV}
@@ -615,7 +615,7 @@ function Index() {
             </div>
             <a
               href={cvAsset.url}
-              download="Ibsen_Rubayita_CV.pdf"
+              target="_blank" rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
             >
               <Download className="size-3.5" /> {t.downloadCV}
