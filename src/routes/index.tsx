@@ -115,7 +115,7 @@ const T = {
     downloadCV: "manura cv",
     aboutTag: "01 — ibyerekeye",
     aboutHead: ["Umwubatsi w’urubuga ufite ijisho ku ", "moderi", "."],
-    aboutP: "Nubaka byose — uhereye kuri pixel umukoresha akoraho kugeza ku rubuga rw’imbere. Intego yanjye: imbuga zoroshye ku byuma byose, zishingiye ku rusobe rukomeye, rwumvikana kandi rworoshye kubungabunga.",
+    aboutP: "Nubaka imbuga zuzuye — uhereye ku masura umuntu akoresha kugeza ku buryo bukorera inyuma. Imiterere yoroshye kandi igaragara neza ku byuma byose; kode nziza kandi igaragara neza. Nico nagerageza kubona.",
     stats: [
       { k: "04", v: "Imyaka mbaka" },
       { k: "05+", v: "Imishinga yakozwe" },
