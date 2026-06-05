@@ -409,7 +409,7 @@ function Index() {
                 </button>
                 <a
                   href={cvAsset.url}
-                  download="Ibsen_Rubayita_CV.pdf"
+                  target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
                 >
                   <Download className="size-3.5" /> {t.downloadCV}
@@ -615,7 +615,7 @@ function Index() {
             </div>
             <a
               href={cvAsset.url}
-              download="Ibsen_Rubayita_CV.pdf"
+              target="_blank" rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
             >
               <Download className="size-3.5" /> {t.downloadCV}
