@@ -165,7 +165,7 @@ const T = {
     downloadCV: "télécharger cv",
     aboutTag: "01 — à propos",
     aboutHead: ["Ingénieur full-stack à l’œil de ", "designer", "."],
-    aboutP: "Je construis toute la pile — du pixel que l’on touche à la requête que le serveur murmure en retour. Mon cap : des interfaces qui respirent sur chaque écran, posées sur des back-ends calmes, honnêtes et faciles à vivre.",
+    aboutP: "Je construis des exp00e9riences web compl00e8tes 2014 de l2019interface que les utilisateurs voient aux syst00e8mes qui tournent en arri00e8re-plan. Des designs propres et adaptatifs en surface ; du code solide et maintenable en dessous. C2019est l201900e9quilibre que je vise.",
     stats: [
       { k: "04", v: "Années de pratique" },
       { k: "05+", v: "Projets réalisés" },
