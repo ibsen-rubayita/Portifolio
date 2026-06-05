@@ -210,6 +210,15 @@ const PROJECT_META = [
   { n: "02", year: "2025", href: "https://calogero-alpha.vercel.app" },
 ];
 
+const CERTS = [
+  { title: "Virtual Assistance in the Digital Age", issuer: "ALX", year: "2024" },
+  { title: "Claude Code 101", issuer: "Anthropic", year: "2025" },
+  { title: "Claude 101", issuer: "Anthropic", year: "2025" },
+  { title: "Software Development Internship", issuer: "Saltel Technical Training Center", year: "2024" },
+  { title: "Software Development Training", issuer: "eShuri 21st Century Skills Lab", year: "2023" },
+  { title: "Social Affairs — Students' Board", issuer: "Rusororo Institute (APAER)", year: "2024" },
+];
+
 function useTheme() {
   const [theme, setTheme] = useState<"light" | "dark">("dark");
   useEffect(() => {
@@ -292,6 +301,7 @@ function Index() {
               ["work", t.nav.work],
               ["stack", t.nav.stack],
               ["services", t.nav.services],
+              ["certs", t.nav.certs],
               ["contact", t.nav.contact],
             ] as const).map(([id, label]) => (
               <a
