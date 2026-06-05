@@ -64,10 +64,10 @@ const T = {
     downloadCV: "download cv",
     aboutTag: "01 — about",
     aboutHead: ["Full-stack engineer with an eye for ", "design", "."],
-    aboutP: "I build the whole stack — from the pixel a user touches to the query a server whispers back. My north star is interfaces that breathe on every screen, resting on back-ends that are calm, honest, and easy to live with.",
+    aboutP: "I build complete web experiences — from the interfaces people see to the systems that power them behind the scenes. Clean, responsive designs on the surface; solid, maintainable code underneath. That's the balance I aim for.",
     stats: [
       { k: "04", v: "Years building" },
-      { k: "05+", v: "Shipped projects" },
+      { k: "05+", v: "Done projects" },
       { k: "12+", v: "Languages & tools" },
       { k: "100%", v: "On-time delivery" },
     ],
@@ -88,7 +88,7 @@ const T = {
     certsHead: ["Trainings & ", "certificates"],
     contactTag: "06 — let’s talk",
     contactHead: ["Have an idea?", "Let’s build it."],
-    uptime: "replies within ~24h · mon–fri",
+    
     formTitle: "send a message",
     name: "name", email: "email", message: "message",
     namePh: "Your name", emailPh: "you@domain.com", msgPh: "Tell me about your project…",
@@ -115,10 +115,10 @@ const T = {
     downloadCV: "manura cv",
     aboutTag: "01 — ibyerekeye",
     aboutHead: ["Umwubatsi w’urubuga ufite ijisho ku ", "moderi", "."],
-    aboutP: "Nubaka byose — uhereye kuri pixel umukoresha akoraho kugeza ku rubuga rw’imbere. Intego yanjye: imbuga zoroshye ku byuma byose, zishingiye ku rusobe rukomeye, rwumvikana kandi rworoshye kubungabunga.",
+    aboutP: "Nubaka imbuga zuzuye — uhereye ku masura umuntu akoresha kugeza ku buryo bukorera inyuma. Imiterere yoroshye kandi igaragara neza ku byuma byose; kode nziza kandi igaragara neza. Nico nagerageza kubona.",
     stats: [
       { k: "04", v: "Imyaka mbaka" },
-      { k: "05+", v: "Imishinga yarangiye" },
+      { k: "05+", v: "Imishinga yakozwe" },
       { k: "12+", v: "Indimi & ibikoresho" },
       { k: "100%", v: "Bigeze ku gihe" },
     ],
@@ -139,7 +139,6 @@ const T = {
     certsHead: ["Amahugurwa & ", "impamyabumenyi"],
     contactTag: "06 — tuvugane",
     contactHead: ["Ufite igitekerezo?", "Reka tukibake."],
-    uptime: "nsubiza mu masaha ~24 · kuwa mbere–gatanu",
     formTitle: "ohereza ubutumwa",
     name: "izina", email: "imeli", message: "ubutumwa",
     namePh: "Izina ryawe", emailPh: "wowe@urubuga.com", msgPh: "Mbwira ku mushinga wawe…",
@@ -166,10 +165,10 @@ const T = {
     downloadCV: "télécharger cv",
     aboutTag: "01 — à propos",
     aboutHead: ["Ingénieur full-stack à l’œil de ", "designer", "."],
-    aboutP: "Je construis toute la pile — du pixel que l’on touche à la requête que le serveur murmure en retour. Mon cap : des interfaces qui respirent sur chaque écran, posées sur des back-ends calmes, honnêtes et faciles à vivre.",
+    aboutP: "Je construis des expériences web complètes — de l’interface que les utilisateurs voient aux systèmes qui tournent en arrière-plan. Des designs propres et adaptatifs en surface ; du code solide et maintenable en dessous. C’est l’équilibre que je vise.",
     stats: [
       { k: "04", v: "Années de pratique" },
-      { k: "05+", v: "Projets livrés" },
+      { k: "05+", v: "Projets réalisés" },
       { k: "12+", v: "Langages & outils" },
       { k: "100%", v: "Livré à temps" },
     ],
@@ -190,7 +189,6 @@ const T = {
     certsHead: ["Formations & ", "certificats"],
     contactTag: "06 — parlons-en",
     contactHead: ["Une idée ?", "Construisons-la."],
-    uptime: "réponses sous ~24h · lun–ven",
     formTitle: "envoyer un message",
     name: "nom", email: "email", message: "message",
     namePh: "Votre nom", emailPh: "vous@domaine.com", msgPh: "Parlez-moi de votre projet…",
@@ -547,8 +545,8 @@ function Index() {
               {t.stackHead[0]}<span className="text-accent">{t.stackHead[1]}</span>
             </h2>
             <div className="mt-5 rounded-md border border-border bg-card/60 p-3 font-mono text-xs">
-              <div><span className="text-accent">$</span> ls -la /skills</div>
-              <div className="text-muted-foreground mt-1">total {Object.values(STACK).flat().length}</div>
+              <div className="text-accent font-semibold">Languages</div>
+              <div className="text-muted-foreground mt-1">Total: {Object.values(STACK).flat().length} skills</div>
             </div>
           </div>
           <div className="col-span-12 md:col-span-8 space-y-8">
@@ -705,8 +703,8 @@ function Index() {
               </a>
 
               <div className="pt-4 mt-2 border-t border-border font-mono text-xs text-muted-foreground leading-relaxed">
-                <div><span className="text-accent">$</span> uptime</div>
-                <div className="text-foreground/80">{t.uptime}</div>
+                <div>Available for freelance work</div>
+                <div className="text-foreground/80">Let's build something together.</div>
               </div>
             </div>
 
