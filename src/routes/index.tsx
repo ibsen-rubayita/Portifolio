@@ -603,6 +603,48 @@ function Index() {
         </div>
       </section>
 
+      {/* CERTIFICATES */}
+      <section id="certs" className="py-16 md:py-24 border-t border-border scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-2">
+                <span className="text-accent">#</span> {t.certsTag}
+              </p>
+              <h2 className="font-display text-3xl md:text-5xl font-600 tracking-tight">
+                {t.certsHead[0]}<span className="text-accent">{t.certsHead[1]}</span>
+              </h2>
+            </div>
+            <a
+              href={cvAsset.url}
+              download="Ibsen_Rubayita_CV.pdf"
+              className="hidden md:inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
+            >
+              <Download className="size-3.5" /> {t.downloadCV}
+            </a>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CERTS.map((cert) => (
+              <div
+                key={cert.title}
+                className="group relative p-5 rounded-lg border border-border bg-card/40 hover:border-accent transition flex gap-4"
+              >
+                <span className="size-10 shrink-0 grid place-items-center rounded-md bg-accent/10 text-accent border border-accent/20">
+                  <Award className="size-5" />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-display text-[15px] font-600 leading-tight">{cert.title}</h3>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground mt-1.5">
+                    {cert.issuer}
+                  </p>
+                  <p className="font-mono text-[11px] text-accent mt-1">{cert.year}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT */}
       <section
         id="contact"
