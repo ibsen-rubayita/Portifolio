@@ -17,6 +17,7 @@ import {
   Copy,
   Check,
   Languages,
+  Award,
 } from "lucide-react";
 import photoAsset from "@/assets/ibsen-photo.png.asset.json";
 import cvAsset from "@/assets/ibsen-cv.pdf.asset.json";
@@ -50,13 +51,13 @@ type Lang = "en" | "rw" | "fr";
 
 const T = {
   en: {
-    nav: { about: "about", work: "work", stack: "stack", services: "services", contact: "contact" },
-    status: "status: available · 2026",
-    role: "full-stack web developer",
+    nav: { about: "about", work: "work", stack: "stack", services: "services", certs: "certificates", contact: "contact" },
+    status: "status: independent · open for projects",
+    role: "independent full-stack developer",
     expLabel: "experience",
     heroA: "Crafting the web,",
     heroB: "line by line.",
-    heroP: "I’m Ibsen — a full-stack developer in Kigali, turning quiet ideas into living interfaces. Four years deep, five-plus stories shipped, still listening to what good code wants to be.",
+    heroP: "I’m Ibsen — an independent full-stack developer in Kigali, turning quiet ideas into living interfaces. Four years deep, five-plus stories shipped, still listening to what good code wants to be.",
     viewWork: "view work",
     copyEmail: "copy email",
     copied: "copied",
@@ -83,7 +84,9 @@ const T = {
       { t: "APIs & back-end", d: "REST services, Postgres schemas, and integrations that don’t flinch at scale." },
       { t: "Maintenance & support", d: "Ongoing care for live products — fixes, upgrades, and a calm hand on the wheel." },
     ],
-    contactTag: "05 — let’s talk",
+    certsTag: "05 — recognition",
+    certsHead: ["Trainings & ", "certificates"],
+    contactTag: "06 — let’s talk",
     contactHead: ["Have an idea?", "Let’s build it."],
     uptime: "replies within ~24h · mon–fri",
     formTitle: "send a message",
@@ -99,13 +102,13 @@ const T = {
     ],
   },
   rw: {
-    nav: { about: "ibyerekeye", work: "imirimo", stack: "ibikoresho", services: "serivisi", contact: "twandikire" },
-    status: "imimerere: arahari · 2026",
-    role: "umuhanga w’urubuga rwuzuye",
+    nav: { about: "ibyerekeye", work: "imirimo", stack: "ibikoresho", services: "serivisi", certs: "impamyabumenyi", contact: "twandikire" },
+    status: "imimerere: nikorera · iteguye imishinga",
+    role: "umuhanga w’urubuga wikorera",
     expLabel: "uburambe",
     heroA: "Kubaka urubuga,",
     heroB: "umurongo ku wundi.",
-    heroP: "Nitwa Ibsen — umuhanga w’urubuga uba i Kigali, uhindura ibitekerezo bicye bibe imbuga zibaho. Imyaka ine, imishinga irenga itanu, nkikomeje kumva ibyo kode nziza ishaka kuvuga.",
+    heroP: "Nitwa Ibsen — umuhanga w’urubuga wikorera, uba i Kigali, uhindura ibitekerezo bicye bibe imbuga zibaho. Imyaka ine, imishinga irenga itanu, nkikomeje kumva ibyo kode nziza ishaka kuvuga.",
     viewWork: "reba imirimo",
     copyEmail: "fata imeli",
     copied: "byafashwe",
@@ -132,7 +135,9 @@ const T = {
       { t: "API & inyuma", d: "Serivisi za REST, Postgres, n’imihuza ihagarara n’imirimo iremereye." },
       { t: "Kwita & gushyigikira", d: "Kwita ku bicuruzwa biri mu kazi — gukosora, kuvugurura, no guhagarara hafi." },
     ],
-    contactTag: "05 — tuvugane",
+    certsTag: "05 — impamyabumenyi",
+    certsHead: ["Amahugurwa & ", "impamyabumenyi"],
+    contactTag: "06 — tuvugane",
     contactHead: ["Ufite igitekerezo?", "Reka tukibake."],
     uptime: "nsubiza mu masaha ~24 · kuwa mbere–gatanu",
     formTitle: "ohereza ubutumwa",
@@ -148,13 +153,13 @@ const T = {
     ],
   },
   fr: {
-    nav: { about: "à propos", work: "projets", stack: "stack", services: "services", contact: "contact" },
-    status: "statut : disponible · 2026",
-    role: "développeur web full-stack",
+    nav: { about: "à propos", work: "projets", stack: "stack", services: "services", certs: "certificats", contact: "contact" },
+    status: "statut : indépendant · ouvert aux projets",
+    role: "développeur full-stack indépendant",
     expLabel: "expérience",
     heroA: "Façonner le web,",
     heroB: "ligne après ligne.",
-    heroP: "Je suis Ibsen — développeur full-stack à Kigali, je transforme des idées discrètes en interfaces vivantes. Quatre ans de pratique, plus de cinq produits livrés, toujours à l’écoute de ce que veut un beau code.",
+    heroP: "Je suis Ibsen — développeur full-stack indépendant à Kigali, je transforme des idées discrètes en interfaces vivantes. Quatre ans de pratique, plus de cinq produits livrés, toujours à l’écoute de ce que veut un beau code.",
     viewWork: "voir les projets",
     copyEmail: "copier l’email",
     copied: "copié",
@@ -181,7 +186,9 @@ const T = {
       { t: "APIs & back-end", d: "Services REST, schémas Postgres et intégrations qui tiennent à l’échelle." },
       { t: "Maintenance & support", d: "Suivi de produits en production — correctifs, mises à jour, et une main calme à la barre." },
     ],
-    contactTag: "05 — parlons-en",
+    certsTag: "05 — reconnaissance",
+    certsHead: ["Formations & ", "certificats"],
+    contactTag: "06 — parlons-en",
     contactHead: ["Une idée ?", "Construisons-la."],
     uptime: "réponses sous ~24h · lun–ven",
     formTitle: "envoyer un message",
@@ -201,6 +208,15 @@ const T = {
 const PROJECT_META = [
   { n: "01", year: "2025", href: "https://artspace-canvas.lovable.app" },
   { n: "02", year: "2025", href: "https://calogero-alpha.vercel.app" },
+];
+
+const CERTS = [
+  { title: "Virtual Assistance in the Digital Age", issuer: "ALX", year: "2024" },
+  { title: "Claude Code 101", issuer: "Anthropic", year: "2025" },
+  { title: "Claude 101", issuer: "Anthropic", year: "2025" },
+  { title: "Software Development Internship", issuer: "Saltel Technical Training Center", year: "2024" },
+  { title: "Software Development Training", issuer: "eShuri 21st Century Skills Lab", year: "2023" },
+  { title: "Social Affairs — Students' Board", issuer: "Rusororo Institute (APAER)", year: "2024" },
 ];
 
 function useTheme() {
@@ -285,6 +301,7 @@ function Index() {
               ["work", t.nav.work],
               ["stack", t.nav.stack],
               ["services", t.nav.services],
+              ["certs", t.nav.certs],
               ["contact", t.nav.contact],
             ] as const).map(([id, label]) => (
               <a
@@ -580,6 +597,48 @@ function Index() {
                   <h3 className="font-display text-lg font-600">{s.t}</h3>
                 </div>
                 <p className="text-sm text-muted-foreground">{s.d}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CERTIFICATES */}
+      <section id="certs" className="py-16 md:py-24 border-t border-border scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted-foreground mb-2">
+                <span className="text-accent">#</span> {t.certsTag}
+              </p>
+              <h2 className="font-display text-3xl md:text-5xl font-600 tracking-tight">
+                {t.certsHead[0]}<span className="text-accent">{t.certsHead[1]}</span>
+              </h2>
+            </div>
+            <a
+              href={cvAsset.url}
+              download="Ibsen_Rubayita_CV.pdf"
+              className="hidden md:inline-flex items-center gap-2 border border-border font-mono text-xs uppercase tracking-[0.18em] px-4 py-2.5 rounded-full hover:border-accent hover:text-accent transition"
+            >
+              <Download className="size-3.5" /> {t.downloadCV}
+            </a>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CERTS.map((cert) => (
+              <div
+                key={cert.title}
+                className="group relative p-5 rounded-lg border border-border bg-card/40 hover:border-accent transition flex gap-4"
+              >
+                <span className="size-10 shrink-0 grid place-items-center rounded-md bg-accent/10 text-accent border border-accent/20">
+                  <Award className="size-5" />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="font-display text-[15px] font-600 leading-tight">{cert.title}</h3>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground mt-1.5">
+                    {cert.issuer}
+                  </p>
+                  <p className="font-mono text-[11px] text-accent mt-1">{cert.year}</p>
+                </div>
               </div>
             ))}
           </div>
