@@ -19,7 +19,7 @@ import {
   Languages,
   Award,
 } from "lucide-react";
-import photoAsset from "@/assets/ibsen-photo.png.asset.json";
+const photoAsset = { url: "/ibsen-photo.png" };
 import cvAsset from "@/assets/ibsen-cv.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
